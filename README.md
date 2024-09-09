@@ -58,7 +58,7 @@ color: #00698f;
 <!-- Add Stripe's JavaScript library and checkout code -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-const stripe = Stripe('YOUR_STRIPE_SECRET_KEY');
+const stripe = Stripe('Secret key');
 const checkoutForm = document.getElementById('checkout-form');
 
 checkoutForm.addEventListener('submit', event => {
