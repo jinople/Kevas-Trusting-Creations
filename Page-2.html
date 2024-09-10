@@ -1,5 +1,86 @@
-html
-<!-- Shirt 9 -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Keva's Trusting Creations - Shirts 2</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #f5f5f5;
+}
+header {
+background-color: #00698f;
+color: #fff;
+padding: 20px;
+text-align: center;
+}
+nav {
+background-color: #333;
+color: #fff;
+padding: 20px;
+text-align: center;
+}
+nav a {
+color: #fff;
+text-decoration: none;
+margin: 20px;
+}
+nav a:hover {
+color: #ccc;
+}
+main {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+.shirt-container {
+margin: 20px;
+width: 250px;
+height: 350px;
+background-color: #fff;
+border: 1px solid #ddd;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.shirt-image {
+width: 100%;
+height: 150px;
+object-fit: cover;
+border-radius: 10px 10px 0 0;
+}
+.shirt-info {
+padding: 20px;
+}
+.shirt-name {
+font-weight: bold;
+font-size: 18px;
+}
+.shirt-price {
+font-size: 16px;
+color: #00698f;
+}
+.paypal-button {
+background-color: #00698f;
+color: #fff;
+border: none;
+border-radius: 10px;
+padding: 10px 20px;
+cursor: pointer;
+}
+.paypal-button:hover {
+background-color: #00457c;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Keva's Trusting Creations - Shirts 2</h1>
+</header>
+<nav>
+<a href="index.html">Home</a>
+<a href="shirts-2.html">Shirts 2</a>
+</nav>
+<main>
+<!-- Row 1 -->
 <div class="shirt-container">
 <img src="shirt9.jpg" alt="Shirt 9" class="shirt-image">
 <div class="shirt-info">
@@ -8,7 +89,6 @@ html
 <button class="paypal-button" onclick="paypalCheckout('Shirt 9', '19.99')">Buy Now</button>
 </div>
 </div>
-<!-- Shirt 10 -->
 <div class="shirt-container">
 <img src="shirt10.jpg" alt="Shirt 10" class="shirt-image">
 <div class="shirt-info">
@@ -17,7 +97,6 @@ html
 <button class="paypal-button" onclick="paypalCheckout('Shirt 10', '19.99')">Buy Now</button>
 </div>
 </div>
-<!-- Shirt 11 -->
 <div class="shirt-container">
 <img src="shirt11.jpg" alt="Shirt 11" class="shirt-image">
 <div class="shirt-info">
@@ -26,7 +105,6 @@ html
 <button class="paypal-button" onclick="paypalCheckout('Shirt 11', '19.99')">Buy Now</button>
 </div>
 </div>
-<!-- Shirt 12 -->
 <div class="shirt-container">
 <img src="shirt12.jpg" alt="Shirt 12" class="shirt-image">
 <div class="shirt-info">
@@ -35,7 +113,8 @@ html
 <button class="paypal-button" onclick="paypalCheckout('Shirt 12', '19.99')">Buy Now</button>
 </div>
 </div>
-<!-- Shirt 13 -->
+
+<!-- Row 2 -->
 <div class="shirt-container">
 <img src="shirt13.jpg" alt="Shirt 13" class="shirt-image">
 <div class="shirt-info">
@@ -44,7 +123,6 @@ html
 <button class="paypal-button" onclick="paypalCheckout('Shirt 13', '19.99')">Buy Now</button>
 </div>
 </div>
-<!-- Shirt 14 -->
 <div class="shirt-container">
 <img src="shirt14.jpg" alt="Shirt 14" class="shirt-image">
 <div class="shirt-info">
@@ -53,7 +131,6 @@ html
 <button class="paypal-button" onclick="paypalCheckout('Shirt 14', '19.99')">Buy Now</button>
 </div>
 </div>
-<!-- Shirt 15 -->
 <div class="shirt-container">
 <img src="shirt15.jpg" alt="Shirt 15" class="shirt-image">
 <div class="shirt-info">
@@ -62,7 +139,6 @@ html
 <button class="paypal-button" onclick="paypalCheckout('Shirt 15', '19.99')">Buy Now</button>
 </div>
 </div>
-<!-- Shirt 16 -->
 <div class="shirt-container">
 <img src="shirt16.jpg" alt="Shirt 16" class="shirt-image">
 <div class="shirt-info">
@@ -71,3 +147,29 @@ html
 <button class="paypal-button" onclick="paypalCheckout('Shirt 16', '19.99')">Buy Now</button>
 </div>
 </div>
+</main>
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
+<script>
+function paypalCheckout(shirtName, price) {
+paypal.Buttons({
+createOrder: function(data, actions) {
+return actions.order.create({
+purchase_units: [{
+amount: {
+currency_code: 'USD',
+value: price
+}
+}]
+});
+[]
+},
+onApprove: function(data, actions) {
+return actions.order.capture().then(function(details) {
+console.log(`Payment successful for ${shirtName}!`);
+});
+}
+}).render('#paypal-button-container');
+}
+</script>
+</body>
+</html>
