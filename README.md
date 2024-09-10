@@ -77,7 +77,7 @@ background-color: #00457c;
 </header>
 <nav>
 <a href="index.html">Home</a>
-<a href="shirts-2.html">Shirts 2</a>
+<a href="Page-2.html">Page 2</a>
 </nav>
 <main>
 <!-- Shirt 1 -->
